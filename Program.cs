@@ -1,6 +1,7 @@
 ﻿using Gym_Managament_API.Data;
 using Microsoft.EntityFrameworkCore;
-
+using Gym_Managament_API.Interfaces;
+using Gym_Managament_API.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 // Register DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IMembershipPlanRepository, MembershipPlanRepository>();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
