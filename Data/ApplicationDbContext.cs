@@ -13,5 +13,7 @@ namespace Gym_Managament_API.Data
         public DbSet<MembershipPlan> MembershipPlans { get; set; }
 
         public DbSet<Member> Members { get; set; }
+
+
     }
 }

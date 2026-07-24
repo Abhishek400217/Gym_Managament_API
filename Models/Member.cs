@@ -9,33 +9,23 @@ namespace Gym_Managament_API.Models
         public int MemberId { get; set; }
 
         [Required]
-        [MaxLength(50)]
-        public string FirstName { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(50)]
-        public string LastName { get; set; } = string.Empty;
-
-        [Required]
-        [MaxLength(10)]
-        public string Gender { get; set; } = string.Empty;
+        [MaxLength(100)]
+        public string FullName { get; set; } = string.Empty;
 
         [Required]
         [MaxLength(15)]
-        public string Phone { get; set; } = string.Empty;
+        public string MobileNo { get; set; } = string.Empty;
 
-        [Required]
-        [MaxLength(100)]
-        public string Email { get; set; } = string.Empty;
+        public int Age { get; set; }
 
-        [MaxLength(200)]
-        public string? Address { get; set; }
+        [MaxLength(10)]
+        public string Gender { get; set; } = string.Empty;
 
         public DateTime JoinDate { get; set; }
 
         public int MembershipPlanId { get; set; }
 
         [ForeignKey("MembershipPlanId")]
-        public MembershipPlan? MembershipPlan { get; set; }
+        public MembershipPlan MembershipPlan { get; set; }
     }
 }
