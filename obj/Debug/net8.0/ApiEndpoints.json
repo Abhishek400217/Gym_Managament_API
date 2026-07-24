@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "Gym_Managament_API.Controllers.MembershipPlansController",
+    "Method": "GetAll",
+    "RelativePath": "api/MembershipPlans",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Gym_Managament_API.Controllers.MembershipPlansController",
+    "Method": "Add",
+    "RelativePath": "api/MembershipPlans",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Gym_Managament_API.DTOs.MembershipPlanDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Gym_Managament_API.Controllers.MembershipPlansController",
+    "Method": "GetById",
+    "RelativePath": "api/MembershipPlans/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
