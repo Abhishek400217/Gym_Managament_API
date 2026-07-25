@@ -1,9 +1,11 @@
 ﻿using Gym_Managament_API.DTOs;
 using Gym_Managament_API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Gym_Managament_API.Controllers
 {
+    [Authorize]
+
     [Route("api/[controller]")]
     [ApiController]
     public class MemberController : ControllerBase
