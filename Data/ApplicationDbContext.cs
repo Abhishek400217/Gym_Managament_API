@@ -16,5 +16,6 @@ namespace Gym_Managament_API.Data
 
         public DbSet<Attendance> Attendances { get; set; }
 
+        public DbSet<Payment> Payments { get; set; }
     }
 }
