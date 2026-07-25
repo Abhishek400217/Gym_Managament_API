@@ -6,23 +6,38 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Gym_Managament_API.Migrations
 {
     /// <inheritdoc />
-    public partial class AddMemberTable : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "MembershipPlans",
+                columns: table => new
+                {
+                    PlanId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlanName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    DurationInMonths = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MembershipPlans", x => x.PlanId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Members",
                 columns: table => new
                 {
                     MemberId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    MobileNo = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                     JoinDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MembershipPlanId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -48,6 +63,9 @@ namespace Gym_Managament_API.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Members");
+
+            migrationBuilder.DropTable(
+                name: "MembershipPlans");
         }
     }
 }
