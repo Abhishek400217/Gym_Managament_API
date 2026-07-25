@@ -58,7 +58,7 @@ namespace Gym_Managament_API.Migrations
 
                     b.HasIndex("MembershipPlanId");
 
-                    b.ToTable("Members");
+                    b.ToTable("Members", (string)null);
                 });
 
             modelBuilder.Entity("Gym_Managament_API.Models.MembershipPlan", b =>
@@ -89,7 +89,7 @@ namespace Gym_Managament_API.Migrations
 
                     b.HasKey("PlanId");
 
-                    b.ToTable("MembershipPlans");
+                    b.ToTable("MembershipPlans", (string)null);
                 });
 
             modelBuilder.Entity("Gym_Managament_API.Models.Member", b =>
