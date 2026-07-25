@@ -145,3 +145,4 @@ C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.genruntimeconfig.cache
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\ref\Gym_Managament_API.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.sourcelink.json
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
