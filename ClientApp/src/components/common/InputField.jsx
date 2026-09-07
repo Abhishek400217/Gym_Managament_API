@@ -3,14 +3,15 @@ import { motion } from 'framer-motion'
 import { FiEye, FiEyeOff, FiCheck } from 'react-icons/fi'
 import styles from './InputField.module.css'
 
-// Floating-label input: left icon, password toggle, shake on error, check mark on valid entry.
+// Icon-led glass input. `label` doubles as the visible prompt (rendered as the placeholder, matching the
+// reference's minimal single-line style) and the accessible name, via a visually-hidden <label> — so removing
+// the floating-label chip doesn't cost screen-reader users anything.
 function InputField({ label, type = 'text', name, value, onChange, icon: Icon, error, success = false }) {
   const id = useId()
   const [showPassword, setShowPassword] = useState(false)
   const [focused, setFocused] = useState(false)
   const isPassword = type === 'password'
   const inputType = isPassword && showPassword ? 'text' : type
-  const isFloating = focused || value.length > 0
 
   return (
     <motion.div
@@ -18,6 +19,8 @@ function InputField({ label, type = 'text', name, value, onChange, icon: Icon, e
       animate={error ? { x: [0, -8, 8, -6, 6, 0] } : { x: 0 }}
       transition={{ duration: 0.4 }}
     >
+      <label htmlFor={id} className={styles.srOnly}>{label}</label>
+
       <div className={`${styles.field} ${error ? styles.fieldError : ''} ${focused ? styles.fieldFocused : ''}`}>
         {Icon && <Icon className={styles.leadingIcon} aria-hidden="true" />}
 
@@ -29,15 +32,12 @@ function InputField({ label, type = 'text', name, value, onChange, icon: Icon, e
           onChange={onChange}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          placeholder={label}
           className={styles.input}
           autoComplete={isPassword ? 'current-password' : 'email'}
           aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
         />
-
-        <label htmlFor={id} className={`${styles.label} ${isFloating ? styles.labelFloating : ''}`}>
-          {label}
-        </label>
 
         {isPassword && (
           <button

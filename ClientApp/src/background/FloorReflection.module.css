@@ -1,0 +1,19 @@
+.reflection {
+  position: absolute;
+  top: 100%;
+  left: 8%;
+  right: 8%;
+  height: 90px;
+  margin-top: 2px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 80%);
+  filter: blur(6px);
+  transform: scaleY(-0.5);
+  transform-origin: top;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .reflection { display: none; }
+}

@@ -1,0 +1,36 @@
+.wrapper {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logoRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pulseIcon {
+  font-size: 22px;
+  color: var(--color-accent-primary);
+}
+
+.wordmark {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #f5f6f8;
+}
+
+.wordmarkAccent {
+  color: var(--color-accent-primary);
+}
+
+.tagline {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}

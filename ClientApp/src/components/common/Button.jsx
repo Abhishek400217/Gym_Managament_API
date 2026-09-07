@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import styles from './Button.module.css'
 
-// Premium CTA: animated gradient, ripple on click, and it swaps between label / spinner / success check.
-function Button({ children, type = 'button', onClick, disabled = false, loading = false, success = false }) {
+// Premium CTA: gradient fill, ripple on click, swaps between label+icon / spinner / success check.
+// `icon` is a generic optional prop (not hardcoded to an arrow) so this stays reusable for any future button.
+function Button({ children, type = 'button', onClick, disabled = false, loading = false, success = false, icon: Icon }) {
   const [ripples, setRipples] = useState([])
 
   const handleClick = (e) => {
@@ -13,7 +14,6 @@ function Button({ children, type = 'button', onClick, disabled = false, loading 
     setTimeout(() => {
       setRipples((prev) => prev.filter((r) => r.id !== ripple.id))
     }, 600)
-
     if (onClick) onClick(e)
   }
 
@@ -23,7 +23,7 @@ function Button({ children, type = 'button', onClick, disabled = false, loading 
       className={styles.button}
       onClick={handleClick}
       disabled={disabled || loading}
-      whileHover={disabled ? {} : { y: -2, boxShadow: '0 12px 40px rgba(124, 58, 237, 0.45)' }}
+      whileHover={disabled ? {} : { y: -2, boxShadow: '0 14px 34px rgba(79, 140, 255, 0.4)' }}
       whileTap={{ scale: 0.97 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
     >
@@ -36,8 +36,9 @@ function Button({ children, type = 'button', onClick, disabled = false, loading 
           ) : loading ? (
             <motion.span key="loading" className={styles.spinner} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} />
           ) : (
-            <motion.span key="label" initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}>
+            <motion.span key="label" className={styles.labelRow} initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -4 }}>
               {children}
+              {Icon && <Icon className={styles.trailingIcon} aria-hidden="true" />}
             </motion.span>
           )}
         </AnimatePresence>

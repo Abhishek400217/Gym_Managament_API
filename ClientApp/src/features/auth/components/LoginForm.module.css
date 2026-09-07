@@ -1,0 +1,48 @@
+.formOptions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 2px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+.rememberMe {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.rememberMe input {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  accent-color: var(--color-accent-primary);
+  cursor: pointer;
+}
+
+.forgotPassword {
+  color: var(--color-accent-secondary);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.forgotPassword:hover {
+  text-decoration: underline;
+}
+
+.submitAction {
+  margin-top: 18px;
+}
+
+.staffNotice {
+  margin: 10px 0 0;
+  color: var(--color-text-muted);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  text-align: center;
+}

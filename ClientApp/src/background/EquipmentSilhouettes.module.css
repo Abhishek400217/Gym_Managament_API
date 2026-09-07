@@ -1,0 +1,14 @@
+.silhouettes {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: min(46vw, 620px);
+  height: 62vh;
+  z-index: 1;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .silhouettes { width: 70vw; opacity: 0.35; }
+}

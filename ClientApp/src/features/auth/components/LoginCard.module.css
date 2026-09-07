@@ -1,19 +1,38 @@
 .floatWrapper {
   position: relative;
-  z-index: 2;
+  z-index: 10;
   width: 100%;
   max-width: 440px;
 }
 
+.borderGlow {
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--radius-lg);
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 184, 107, 0.5),
+    rgba(79, 140, 255, 0.5),
+    rgba(99, 199, 255, 0.4),
+    rgba(255, 184, 107, 0.5)
+  );
+  filter: blur(14px);
+  opacity: 0.35;
+  animation: rotateGlow 16s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateGlow { to { transform: rotate(360deg); } }
+
 .card {
   position: relative;
   border-radius: var(--radius-lg);
-  background: linear-gradient(145deg, rgba(31, 42, 44, 0.72), rgba(10, 15, 16, 0.74));
-  border: 1px solid rgba(210, 230, 224, 0.18);
+  background: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: var(--blur-glass);
   -webkit-backdrop-filter: var(--blur-glass);
-  box-shadow: var(--shadow-elevation-high), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: 38px 42px 34px;
+  box-shadow: var(--shadow-elevation-high);
+  padding: 46px 42px;
   overflow: hidden;
   transform-style: preserve-3d;
 }
@@ -25,6 +44,23 @@
   z-index: 1;
 }
 
+.sweep {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  animation: sweepMove 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sweepMove {
+  0% { left: -60%; }
+  50% { left: 120%; }
+  100% { left: 120%; }
+}
+
 .content {
   position: relative;
   z-index: 2;
@@ -32,21 +68,10 @@
 }
 
 @media (max-width: 480px) {
-  .card { padding: 32px 24px; }
+  .card { padding: 34px 24px; }
+  .borderGlow { filter: blur(9px); }
 }
 
-.card::before {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  content: '';
-  background: linear-gradient(130deg, rgba(165, 215, 230, 0.5), transparent 30%, transparent 70%, rgba(201, 165, 110, 0.38));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  animation: borderGlow 8s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .borderGlow, .sweep { animation: none; }
 }
-
-@keyframes borderGlow { 50% { opacity: 0.45; filter: hue-rotate(25deg); } }

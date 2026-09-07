@@ -1,23 +1,25 @@
 :root {
-  --color-bg-primary: #080b0e;
-  --color-surface: rgba(239, 231, 214, 0.055);
-  --color-border: rgba(239, 231, 214, 0.15);
-  --color-text-primary: #f4f0e8;
-  --color-text-secondary: #a7a69f;
-  --color-text-muted: #6f746f;
+  --color-bg-primary: #0B0F12;
+  --color-surface: rgba(255, 255, 255, 0.08);
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-text-primary: #f5f6f8;
+  --color-text-secondary: #9297a1;
+  --color-text-muted: #7d8493;
 
-  --color-accent-primary: #3f9cff;
-  --color-accent-secondary: #9bd0ff;
+  --color-accent-primary: #4F8CFF;
+  --color-accent-secondary: #FFB86B;
+  --color-warm: #FFB86B;
+  --color-ambient-blue: #4F8CFF;
 
-  --gradient-primary: linear-gradient(110deg, #1769d2 0%, #53b4ff 52%, #d7f0ff 100%);
+  --gradient-primary: linear-gradient(90deg, #3B6FE0 0%, #4F8CFF 45%, #63C7FF 100%);
 
-  --shadow-elevation-high: 0 32px 90px -26px rgba(0, 0, 0, 0.88);
-  --shadow-glow-violet: 0 0 42px rgba(63, 156, 255, 0.24);
+  --shadow-elevation-high: 0 30px 90px -20px rgba(0, 0, 0, 0.8);
+  --shadow-glow-violet: 0 0 34px rgba(79, 140, 255, 0.3);
 
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
-  --blur-glass: blur(24px);
+  --blur-glass: blur(28px);
 
-  --radius-lg: 28px;
-  --radius-md: 15px;
+  --radius-lg: 26px;
+  --radius-md: 14px;
   --radius-sm: 12px;
 }

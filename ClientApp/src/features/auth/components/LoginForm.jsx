@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiMail, FiLock } from 'react-icons/fi'
+import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi'
 import InputField from '../../../components/common/InputField'
 import Button from '../../../components/common/Button'
+import styles from './LoginForm.module.css'
 
 const containerVariants = {
   hidden: {},
@@ -14,12 +15,13 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
 }
 
-// Owns form state + validation. Stays agnostic about *how* login happens — API wiring lands in Feature 3
-// without touching this file's logic, just the parent's onSubmit handler.
+// Owns form state + validation. Stays agnostic about *how* login happens — Feature 3's Axios call plugs
+// into the parent's onSubmit without touching this file's logic at all.
 function LoginForm({ onSubmit, loading, success }) {
   const [formData, setFormData] = useState({ email: '', password: '' })
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
+  const [rememberMe, setRememberMe] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -74,10 +76,28 @@ function LoginForm({ onSubmit, loading, success }) {
       </motion.div>
 
       <motion.div variants={itemVariants}>
-        <Button type="submit" loading={loading} success={success}>
+        <div className={styles.formOptions}>
+          <label className={styles.rememberMe}>
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+            <span>Remember me</span>
+          </label>
+          <a href="#forgot-password" className={styles.forgotPassword}>Forgot Password?</a>
+        </div>
+      </motion.div>
+
+      <motion.div className={styles.submitAction} variants={itemVariants}>
+        <Button type="submit" loading={loading} success={success} icon={FiArrowRight}>
           Sign In
         </Button>
       </motion.div>
+
+      <motion.p className={styles.staffNotice} variants={itemVariants}>
+        Authorized staff access only.
+      </motion.p>
     </motion.form>
   )
 }

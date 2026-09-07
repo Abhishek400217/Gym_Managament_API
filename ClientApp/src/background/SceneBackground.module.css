@@ -1,0 +1,106 @@
+.scene {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--color-bg-primary);
+  z-index: 0;
+}
+
+.plate {
+  position: absolute;
+  inset: -4%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #0d1520 0%, #16202c 35%, #2a2c33 55%, #0b0f12 100%);
+}
+
+.sunGlow {
+  position: absolute;
+  left: 22%;
+  top: 48%;
+  width: 46vw;
+  height: 46vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 184, 107, 0.35), rgba(255, 184, 107, 0.08) 45%, transparent 70%);
+  filter: blur(2px);
+}
+
+.sunDisc {
+  position: absolute;
+  left: 22%;
+  top: 48%;
+  width: 70px;
+  height: 70px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff2df 0%, #ffb86b 55%, rgba(255, 184, 107, 0) 75%);
+  box-shadow: 0 0 60px 20px rgba(255, 184, 107, 0.4);
+}
+
+.mountains {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  bottom: 28%;
+  height: 16%;
+  background: #05070a;
+  opacity: 0.85;
+  clip-path: polygon(
+    0% 100%, 0% 60%, 8% 40%, 16% 65%, 24% 30%, 33% 58%,
+    42% 20%, 52% 50%, 60% 35%, 70% 62%, 80% 25%, 90% 55%, 100% 40%, 100% 100%
+  );
+}
+
+.glassMullions {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 2px, transparent 2px, transparent 160px
+  );
+  mix-blend-mode: screen;
+}
+
+.floor {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  background: linear-gradient(180deg, rgba(20, 24, 30, 0.4), #05070a 70%);
+}
+
+.floor::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg, rgba(255, 255, 255, 0.02) 0px, rgba(255, 255, 255, 0.02) 1px, transparent 1px, transparent 60px
+  );
+}
+
+.floor::after {
+  content: '';
+  position: absolute;
+  left: 14%;
+  top: 0;
+  width: 16%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 184, 107, 0.18), transparent 80%);
+  filter: blur(6px);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 55%, transparent 35%, rgba(3, 4, 8, 0.75) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plate { animation: none !important; }
+}

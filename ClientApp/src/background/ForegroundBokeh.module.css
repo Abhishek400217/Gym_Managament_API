@@ -1,0 +1,52 @@
+.wrapper {
+  position: fixed;
+  right: 4%;
+  bottom: 6%;
+  width: 260px;
+  height: 220px;
+  z-index: 4;
+  pointer-events: none;
+  filter: blur(5px);
+}
+
+.shaker {
+  position: absolute;
+  right: 20px;
+  bottom: 40px;
+  width: 70px;
+  height: 150px;
+  border-radius: 30px 30px 14px 14px;
+  background: linear-gradient(160deg, rgba(30, 34, 40, 0.85), rgba(10, 12, 15, 0.9));
+  opacity: 0.4;
+}
+
+.shakerHighlight {
+  position: absolute;
+  right: 34px;
+  bottom: 70px;
+  width: 10px;
+  height: 90px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 184, 107, 0.35), transparent);
+  opacity: 0.5;
+}
+
+.towel {
+  position: absolute;
+  right: 90px;
+  bottom: 20px;
+  width: 140px;
+  height: 36px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, rgba(60, 66, 74, 0.6), rgba(20, 22, 26, 0.7));
+  opacity: 0.35;
+  transform: rotate(-8deg);
+}
+
+@media (max-width: 640px) {
+  .wrapper { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper { animation: none; }
+}
