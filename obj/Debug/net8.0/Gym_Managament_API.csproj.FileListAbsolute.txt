@@ -1,5 +1,8 @@
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\appsettings.json
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\ClientApp\package-lock.json
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\ClientApp\package.json
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Gym_Managament_API.staticwebassets.runtime.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Gym_Managament_API.staticwebassets.endpoints.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Gym_Managament_API.exe
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Gym_Managament_API.deps.json
@@ -9,6 +12,7 @@ C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Humanizer.dll
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -129,6 +133,7 @@ C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.sourcelink.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
@@ -144,5 +149,3 @@ C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.pdb
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.genruntimeconfig.cache
 C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\ref\Gym_Managament_API.dll
-C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\obj\Debug\net8.0\Gym_Managament_API.sourcelink.json
-C:\Users\User\source\repos\Gym_Managament_API\Gym_Managament_API\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

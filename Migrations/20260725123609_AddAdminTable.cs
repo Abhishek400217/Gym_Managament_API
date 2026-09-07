@@ -4,10 +4,9 @@
 
 namespace Gym_Managament_API.Migrations
 {
-    /// <inheritdoc />
+     
     public partial class AddAdminTable : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -25,7 +24,6 @@ namespace Gym_Managament_API.Migrations
                 });
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -33,3 +31,4 @@ namespace Gym_Managament_API.Migrations
         }
     }
 }
+
