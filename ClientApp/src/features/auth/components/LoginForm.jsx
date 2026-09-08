@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi'
+import { FiUser, FiLock, FiArrowRight } from 'react-icons/fi'
 import InputField from '../../../components/common/InputField'
 import Button from '../../../components/common/Button'
+import RememberMeRow from './RememberMeRow'
 import styles from './LoginForm.module.css'
 
 const containerVariants = {
@@ -16,12 +17,12 @@ const itemVariants = {
 }
 
 // Owns form state + validation. Stays agnostic about *how* login happens — Feature 3's Axios call plugs
-// into the parent's onSubmit without touching this file's logic at all.
-function LoginForm({ onSubmit, loading, success }) {
-  const [formData, setFormData] = useState({ email: '', password: '' })
+// into the parent's onSubmit without touching this file's logic.
+function LoginForm({ onSubmit, loading, success, authError }) {
+  const [formData, setFormData] = useState({ username: '', password: '' })
+  const [remember, setRemember] = useState(false)
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
-  const [rememberMe, setRememberMe] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -31,10 +32,9 @@ function LoginForm({ onSubmit, loading, success }) {
 
   const validate = () => {
     const newErrors = {}
-    if (!formData.email.trim()) newErrors.email = 'Email is required'
-    else if (!/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = 'Enter a valid email'
+    if (!formData.username.trim()) newErrors.username = 'Username is required'
     if (!formData.password.trim()) newErrors.password = 'Password is required'
-    else if (formData.password.length < 6) newErrors.password = 'Minimum 6 characters'
+    else if (formData.password.length < 5) newErrors.password = 'Minimum 5 characters'
     return newErrors
   }
 
@@ -43,7 +43,7 @@ function LoginForm({ onSubmit, loading, success }) {
     const validationErrors = validate()
     setErrors(validationErrors)
     if (Object.keys(validationErrors).length === 0) {
-      onSubmit(formData)
+      onSubmit({ ...formData, remember })
     }
   }
 
@@ -51,14 +51,14 @@ function LoginForm({ onSubmit, loading, success }) {
     <motion.form onSubmit={handleSubmit} noValidate variants={containerVariants} initial="hidden" animate="visible">
       <motion.div variants={itemVariants}>
         <InputField
-          label="Email address"
-          type="email"
-          name="email"
-          icon={FiMail}
-          value={formData.email}
+          label="Username"
+          type="text"
+          name="username"
+          icon={FiUser}
+          value={formData.username}
           onChange={handleChange}
-          error={errors.email}
-          success={touched.email && !errors.email && formData.email.length > 0}
+          error={errors.username}
+          success={touched.username && !errors.username && formData.username.length > 0}
         />
       </motion.div>
 
@@ -76,28 +76,16 @@ function LoginForm({ onSubmit, loading, success }) {
       </motion.div>
 
       <motion.div variants={itemVariants}>
-        <div className={styles.formOptions}>
-          <label className={styles.rememberMe}>
-            <input
-              type="checkbox"
-              checked={rememberMe}
-              onChange={(e) => setRememberMe(e.target.checked)}
-            />
-            <span>Remember me</span>
-          </label>
-          <a href="#forgot-password" className={styles.forgotPassword}>Forgot Password?</a>
-        </div>
+        <RememberMeRow remember={remember} onRememberChange={(e) => setRemember(e.target.checked)} />
       </motion.div>
 
-      <motion.div className={styles.submitAction} variants={itemVariants}>
+      <motion.div variants={itemVariants}>
         <Button type="submit" loading={loading} success={success} icon={FiArrowRight}>
           Sign In
         </Button>
       </motion.div>
 
-      <motion.p className={styles.staffNotice} variants={itemVariants}>
-        Authorized staff access only.
-      </motion.p>
+      {authError && <p className={styles.authError} role="alert">{authError}</p>}
     </motion.form>
   )
 }

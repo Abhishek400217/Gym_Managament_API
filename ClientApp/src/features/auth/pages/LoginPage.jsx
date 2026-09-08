@@ -1,47 +1,41 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import SceneBackground from '../../../background/SceneBackground'
-import EquipmentSilhouettes from '../../../background/EquipmentSilhouettes'
 import LightRays from '../../../background/LightRays'
 import DustParticles from '../../../background/DustParticles'
-import ForegroundBokeh from '../../../background/ForegroundBokeh'
-import CursorGlow from '../../../components/effects/CursorGlow'
 import LoginCard from '../components/LoginCard'
 import BrandMark from '../components/BrandMark'
 import LoginForm from '../components/LoginForm'
 import styles from './LoginPage.module.css'
 
-// To swap in a real photographed gym interior (recommended for production): drop a licensed, self-hosted
-// photo at src/assets/gym-hero.jpg, import it, and pass it below. No other file needs to change.
-const gymPhotoUrl = undefined
+// Real, freely-licensed photo (Unsplash License — free for commercial use, no attribution required).
+// "Dark gym interior with exercise equipment and weight machines" by Salman Sidheek, via Unsplash.
+// For production: download once and self-host from src/assets instead of hotlinking Unsplash's CDN.
+const gymPhotoUrl =
+  'https://images.unsplash.com/photo-1778828494354-9b717d36dc99?fm=jpg&q=80&w=2400&auto=format&fit=crop&ixlib=rb-4.1.0'
 
 function LoginPage() {
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
+  const [authError, setAuthError] = useState('')
+  const navigate = useNavigate()
 
   const handleLogin = (formData) => {
-    // Simulated for now — replaced with the real Axios call in Feature 3.
-    setLoading(true)
-    setSuccess(false)
-    setTimeout(() => {
-      setLoading(false)
-      setSuccess(true)
-      console.log('Login submitted:', formData)
-      setTimeout(() => setSuccess(false), 1600)
-    }, 1400)
+    if (formData.username === 'abhishek14' && formData.password === '12345') {
+      navigate('/dashboard')
+      return
+    }
+
+    setAuthError('Invalid Username or Password')
   }
 
   return (
     <div className={styles.pageWrapper}>
       <SceneBackground photoUrl={gymPhotoUrl} />
-      <EquipmentSilhouettes />
       <LightRays />
       <DustParticles />
-      <ForegroundBokeh />
-      <CursorGlow />
 
       <LoginCard>
         <BrandMark />
-        <LoginForm onSubmit={handleLogin} loading={loading} success={success} />
+        <LoginForm onSubmit={handleLogin} authError={authError} />
       </LoginCard>
     </div>
   )

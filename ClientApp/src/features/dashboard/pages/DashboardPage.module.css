@@ -1,0 +1,101 @@
+.page {
+  min-height: 100%;
+  padding: 52px clamp(24px, 7vw, 110px);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1180px;
+  margin: 0 auto 42px;
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  color: var(--color-accent-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.header h1 {
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.logoutButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  font: inherit;
+}
+
+.logoutButton:hover { border-color: var(--color-accent-primary); }
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.card {
+  min-height: 164px;
+  padding: 22px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-elevation-high);
+}
+
+.icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  background: rgba(79, 140, 255, 0.14);
+  color: var(--color-accent-primary);
+  font-size: 18px;
+}
+
+.card h2 {
+  margin-bottom: 7px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px;
+}
+
+.card p {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .cardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .page { padding: 32px 20px; }
+  .header { flex-direction: column; }
+  .cardGrid { grid-template-columns: 1fr; }
+}

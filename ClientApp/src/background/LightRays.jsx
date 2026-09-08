@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion'
-import { useParallax } from '../hooks/useParallax'
 import styles from './LightRays.module.css'
 
 // Soft volumetric sunbeams cutting in from the upper-left, as if daylight is passing through tall glass
 // windows. Three staggered beams drift independently so the motion never feels like a single looping GIF.
 function LightRays() {
-  const { x, y } = useParallax(14)
-
   return (
-    <motion.div className={styles.rays} style={{ translateX: x, translateY: y }} aria-hidden="true">
+    <motion.div className={styles.rays} aria-hidden="true">
       <svg className={styles.svg} viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="beamGradient" x1="0" y1="0" x2="1" y2="1">

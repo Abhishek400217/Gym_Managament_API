@@ -11,14 +11,15 @@
   border-radius: var(--radius-lg);
   background: conic-gradient(
     from 0deg,
-    rgba(255, 184, 107, 0.5),
-    rgba(79, 140, 255, 0.5),
-    rgba(99, 199, 255, 0.4),
-    rgba(255, 184, 107, 0.5)
+    rgba(79, 140, 255, 0.55),
+    rgba(255, 255, 255, 0.25),
+    rgba(79, 140, 255, 0.4),
+    rgba(255, 184, 107, 0.3),
+    rgba(79, 140, 255, 0.55)
   );
   filter: blur(14px);
-  opacity: 0.35;
-  animation: rotateGlow 16s linear infinite;
+  opacity: 0.3;
+  animation: rotateGlow 18s linear infinite;
   z-index: -1;
 }
 
@@ -27,21 +28,16 @@
 .card {
   position: relative;
   border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: rgba(14, 17, 21, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: var(--blur-glass);
-  -webkit-backdrop-filter: var(--blur-glass);
-  box-shadow: var(--shadow-elevation-high);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  box-shadow:
+    0 30px 90px -20px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   padding: 46px 42px;
   overflow: hidden;
   transform-style: preserve-3d;
-}
-
-.glare {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
 }
 
 .sweep {
@@ -50,8 +46,8 @@
   left: -60%;
   width: 40%;
   height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  animation: sweepMove 9s ease-in-out infinite;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  animation: sweepMove 10s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -61,11 +57,7 @@
   100% { left: 120%; }
 }
 
-.content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
+.content { position: relative; z-index: 2; text-align: center; }
 
 @media (max-width: 480px) {
   .card { padding: 34px 24px; }
