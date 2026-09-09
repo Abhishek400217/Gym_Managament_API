@@ -1,0 +1,65 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 5, 9, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 40;
+}
+
+.panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 420px;
+    max-width: 100vw;
+    background: var(--dash-card, #10141C);
+    border-left: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    box-shadow: -30px 0 60px -20px rgba(0, 0, 0, 0.6);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 24px;
+    border-bottom: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+}
+
+.closeButton {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    color: var(--dash-text-secondary, #AAB4C3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: var(--dash-text, #fff);
+}
+
+.content {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+@media (max-width: 480px) {
+    .panel {
+        width: 100%;
+    }
+}
