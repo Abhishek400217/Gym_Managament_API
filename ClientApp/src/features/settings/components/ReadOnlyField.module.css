@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.label {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.055em;
+    color: var(--dash-text-secondary, #AAB4C3);
+}
+
+.value {
+    display: block;
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--dash-text, #fff);
+    opacity: 0.7;
+    cursor: default;
+    user-select: text;
+}
+
+.mono {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}

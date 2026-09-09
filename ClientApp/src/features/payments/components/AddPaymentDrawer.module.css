@@ -1,0 +1,51 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.autoFill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.autoFillRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.autoFillLabel {
+    font-size: 12px;
+    color: var(--dash-text-secondary, #AAB4C3);
+}
+
+.autoFillValue {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dash-text, #fff);
+}
+
+.upToDateNote {
+    font-size: 12px;
+    color: var(--dash-success, #3DDC84);
+    background: rgba(61, 220, 132, 0.1);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+}

@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.navButton,
+.pageButton {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    color: var(--dash-text-secondary, #AAB4C3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.navButton:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pageButton:hover {
+    border-color: rgba(79, 140, 255, 0.35);
+    color: var(--dash-text, #fff);
+}
+
+.pageButtonActive {
+    background: rgba(79, 140, 255, 0.16);
+    border-color: rgba(79, 140, 255, 0.4);
+    color: var(--dash-accent, #4F8CFF);
+}

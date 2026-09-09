@@ -3,13 +3,16 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { PlansProvider } from './context/PlansContext.jsx'
+import { PaymentsProvider } from './context/PaymentsContext.jsx'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <PlansProvider>
-        <App />
+        <PaymentsProvider>
+          <App />
+        </PaymentsProvider>
       </PlansProvider>
     </BrowserRouter>
   </StrictMode>,

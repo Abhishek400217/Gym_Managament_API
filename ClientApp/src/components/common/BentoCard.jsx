@@ -1,13 +1,18 @@
 import { motion } from 'framer-motion'
-import { Users, TrendingUp, UserCheck, RefreshCw, CreditCard, Wallet, FileText, Circle } from 'lucide-react'
+import {
+  Users, TrendingUp, UserCheck, Activity, CreditCard, Wallet, FileText,
+  AlertCircle, AlertTriangle, CheckCircle2, Circle,
+} from 'lucide-react'
 import { useCountUp } from '../../hooks/useCountUp'
 import styles from './BentoCard.module.css'
 
-const ICON_MAP = { Users, TrendingUp, UserCheck, RefreshCw, CreditCard, Wallet, FileText }
+// AlertCircle/AlertTriangle/CheckCircle2 are new, added for the Payments module's summary cards. Dashboard's
+// BentoStats only ever passes its original 7 icon keys, so this is a pure addition — nothing it renders changes.
+const ICON_MAP = {
+  Users, TrendingUp, UserCheck, Activity, CreditCard, Wallet, FileText,
+  AlertCircle, AlertTriangle, CheckCircle2,
+}
 
-// Generic glass metric tile for the dashboard's asymmetric bento grid. `size` ('sm' | 'md' | 'lg') sets how
-// many grid cells it spans — see the size classes in BentoCard.module.css — which is what turns a plain
-// grid into a bento layout without any JS layout logic.
 function BentoCard({ label, value, icon, prefix = '', suffix = '', size = 'sm', trend, trendDirection, index = 0 }) {
   const Icon = ICON_MAP[icon] || Circle
   const animatedValue = useCountUp(typeof value === 'number' ? value : 0)

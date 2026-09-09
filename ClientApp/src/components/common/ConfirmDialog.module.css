@@ -1,0 +1,66 @@
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(3, 5, 9, 0.65);
+    backdrop-filter: blur(4px);
+    z-index: 70;
+}
+
+.dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    max-width: calc(100vw - 32px);
+    background: var(--dash-card, #10141C);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: var(--dash-radius-lg, 24px);
+    padding: 26px;
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+    z-index: 80;
+    text-align: center;
+}
+
+.iconWrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: rgba(255, 77, 103, 0.14);
+    color: var(--dash-danger, #FF4D67);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+    margin-bottom: 8px;
+}
+
+.message {
+    font-size: 13px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    margin-bottom: 22px;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.confirmButton {
+    padding: 11px 20px;
+    border-radius: 14px;
+    border: none;
+    background: var(--dash-danger, #FF4D67);
+    color: #fff;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+}

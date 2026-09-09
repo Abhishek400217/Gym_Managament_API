@@ -1,0 +1,45 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 11px 16px;
+    border-radius: 14px;
+    background: none;
+    border: none;
+    color: var(--dash-text-secondary, #AAB4C3);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.18s ease;
+    white-space: nowrap;
+}
+
+.item:hover {
+    color: var(--dash-text, #fff);
+}
+
+.itemActive {
+    color: #fff;
+}
+
+.indicator {
+    position: absolute;
+    inset: 0;
+    background: rgba(79, 140, 255, 0.14);
+    border: 1px solid rgba(79, 140, 255, 0.28);
+    border-radius: 14px;
+    z-index: 0;
+}
+
+.label {
+    position: relative;
+    z-index: 1;
+}

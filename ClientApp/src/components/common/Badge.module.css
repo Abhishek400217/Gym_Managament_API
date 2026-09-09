@@ -10,10 +10,54 @@
   line-height: 1.4;
 }
 
-.icon { width: 11px; height: 11px; }
+.icon {
+  width: 11px;
+  height: 11px;
+}
 
-.success { color: var(--dash-success, #3DDC84); background: rgba(61, 220, 132, 0.12); }
-.warning { color: var(--dash-warning, #F7B500); background: rgba(247, 181, 0, 0.14); }
-.danger { color: var(--dash-danger, #FF4D67); background: rgba(255, 77, 103, 0.12); }
-.accent { color: var(--dash-accent, #4F8CFF); background: rgba(79, 140, 255, 0.14); }
-.neutral { color: var(--dash-text-secondary, #AAB4C3); background: rgba(255, 255, 255, 0.06); }
+.success {
+  color: var(--dash-success, #3DDC84);
+  background: rgba(61, 220, 132, 0.12);
+}
+
+.warning {
+  color: var(--dash-warning, #F7B500);
+  background: rgba(247, 181, 0, 0.14);
+}
+
+.danger {
+  color: var(--dash-danger, #FF4D67);
+  background: rgba(255, 77, 103, 0.12);
+}
+
+.accent {
+  color: var(--dash-accent, #4F8CFF);
+  background: rgba(79, 140, 255, 0.14);
+}
+
+.neutral {
+  color: var(--dash-text-secondary, #AAB4C3);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pulse {
+  animation: badgeBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes badgeBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse {
+    animation: none;
+  }
+}

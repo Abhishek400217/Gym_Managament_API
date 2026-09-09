@@ -1,0 +1,50 @@
+.row {
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.row:hover {
+    background: rgba(255, 255, 255, 0.025);
+    box-shadow: inset 0 0 0 1px rgba(79, 140, 255, 0.12);
+}
+
+.row:focus-visible {
+    outline: 2px solid var(--dash-accent, #4F8CFF);
+    outline-offset: -2px;
+}
+
+.td {
+    padding: 14px 20px;
+    font-size: 13px;
+    color: #e5e7eb;
+    border-bottom: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    white-space: nowrap;
+}
+
+.row:last-child .td {
+    border-bottom: none;
+}
+
+.memberCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: normal;
+}
+
+.name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.methodCell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dash {
+    color: #565d6b;
+}

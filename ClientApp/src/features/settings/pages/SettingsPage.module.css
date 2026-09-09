@@ -1,0 +1,357 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+/* ── Page header ─────────────────────────────────────────────────────────── */
+.pageHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.pageTitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+    margin-bottom: 4px;
+}
+
+.pageSubtitle {
+    font-size: 13px;
+    color: var(--dash-text-secondary, #AAB4C3);
+}
+
+/* ── Two-column layout ───────────────────────────────────────────────────── */
+.layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* ── Left nav sidebar ────────────────────────────────────────────────────── */
+.sidebar {
+    width: 210px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+}
+
+.sidebarInner {
+    background: var(--dash-card, #10141C);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: var(--dash-radius-lg, 24px);
+    padding: 14px 10px;
+}
+
+/* ── Right content ───────────────────────────────────────────────────────── */
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ── Section stack ───────────────────────────────────────────────────────── */
+.sectionsStack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ── Field grid ──────────────────────────────────────────────────────────── */
+.fieldGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── Time row ────────────────────────────────────────────────────────────── */
+.timeRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* ── Logo upload area ────────────────────────────────────────────────────── */
+.logoRow {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.logoPreview {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.logoImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.logoPlaceholderIcon {
+    color: var(--dash-text-secondary, #AAB4C3);
+    opacity: 0.5;
+}
+
+.logoActions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.fileInputHidden {
+    display: none;
+}
+
+.logoHint {
+    font-size: 11.5px;
+    color: #6b7280;
+}
+
+/* ── Theme color row ─────────────────────────────────────────────────────── */
+.themeColorRow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 0;
+}
+
+.themeColorSwatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #3b6fe0, #4f8cff);
+    box-shadow: 0 6px 18px -4px rgba(79, 140, 255, 0.5);
+    flex-shrink: 0;
+}
+
+.themeColorName {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dash-text, #fff);
+    margin-bottom: 2px;
+}
+
+.themeColorHex {
+    font-size: 12px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    font-family: 'Fira Code', monospace;
+}
+
+.themeColorFixed {
+    margin-left: auto;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--dash-text-secondary, #AAB4C3);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: 999px;
+    padding: 4px 10px;
+}
+
+/* ── Session cards ───────────────────────────────────────────────────────── */
+.sessionGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.sessionCard {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: var(--dash-radius-md, 16px);
+}
+
+.sessionCardIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: rgba(79, 140, 255, 0.12);
+    color: var(--dash-accent, #4F8CFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.sessionCardLabel {
+    font-size: 11.5px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+}
+
+.sessionCardValue {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dash-text, #fff);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.sessionDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--dash-success, #3DDC84);
+    box-shadow: 0 0 8px rgba(61, 220, 132, 0.6);
+    display: inline-block;
+}
+
+/* ── About card ──────────────────────────────────────────────────────────── */
+.aboutCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px 0 6px;
+    gap: 6px;
+}
+
+.aboutIconWrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #3b6fe0, #4f8cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    margin-bottom: 8px;
+    box-shadow: 0 14px 32px -8px rgba(79, 140, 255, 0.55);
+}
+
+.aboutAppName {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--dash-text, #fff);
+}
+
+.aboutFullName {
+    font-size: 13.5px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    margin-bottom: 4px;
+}
+
+.aboutVersion {
+    font-size: 12px;
+    color: #6b7280;
+    font-family: 'Fira Code', monospace;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: 999px;
+    padding: 3px 12px;
+}
+
+.aboutDivider {
+    width: 60px;
+    height: 1px;
+    background: var(--dash-border, rgba(255, 255, 255, 0.06));
+    margin: 14px 0 10px;
+}
+
+.aboutCredit {
+    font-size: 13px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.heart {
+    display: inline-block;
+}
+
+.aboutDeveloper {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+    margin-bottom: 16px;
+}
+
+.aboutBadges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 6px;
+}
+
+.aboutBadge {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--dash-accent, #4F8CFF);
+    background: rgba(79, 140, 255, 0.1);
+    border: 1px solid rgba(79, 140, 255, 0.22);
+    border-radius: 999px;
+    padding: 4px 12px;
+    letter-spacing: 0.03em;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .sidebarInner {
+        padding: 10px;
+    }
+
+    .sessionGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .fieldGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .pageHeader {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .logoRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

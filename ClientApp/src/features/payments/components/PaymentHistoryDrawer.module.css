@@ -1,0 +1,97 @@
+.emptyText {
+    font-size: 13px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    gap: 14px;
+}
+
+.markerColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.success {
+    background: var(--dash-success, #3DDC84);
+}
+
+.warning {
+    background: var(--dash-warning, #F7B500);
+}
+
+.danger {
+    background: var(--dash-danger, #FF4D67);
+}
+
+.line {
+    width: 1px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 6px 0;
+}
+
+.content {
+    padding-bottom: 24px;
+    flex: 1;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.deleteButton {
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    color: var(--dash-text-secondary, #AAB4C3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    color: var(--dash-danger, #FF4D67);
+    border-color: rgba(255, 77, 103, 0.4);
+}
+
+.amount {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+    margin-bottom: 2px;
+}
+
+.plan {
+    font-size: 12.5px;
+    color: var(--dash-text-secondary, #AAB4C3);
+    margin-bottom: 4px;
+}
+
+.date {
+    font-size: 11.5px;
+    color: #6b7280;
+}
