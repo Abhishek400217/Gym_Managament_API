@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.illustration { margin-bottom: 22px; }
+.svg { width: 140px; height: 140px; }
+
+.headline {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  margin-bottom: 6px;
+}
+
+.subtext {
+  font-size: 13px;
+  color: var(--dash-text-secondary, #AAB4C3);
+  max-width: 320px;
+  margin-bottom: 22px;
+}

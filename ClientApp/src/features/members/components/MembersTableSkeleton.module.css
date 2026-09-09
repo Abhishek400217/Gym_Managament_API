@@ -1,0 +1,30 @@
+.tableSkeleton {
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: var(--dash-radius-lg, 24px);
+  padding: 8px 20px;
+}
+
+.rowSkeleton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+}
+
+.rowSkeleton:last-child { border-bottom: none; }
+
+.rowIdentity { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 160px; }
+
+.cardSkeleton {
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: var(--dash-radius-lg, 24px);
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.cardTop { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.cardTopText { display: flex; flex-direction: column; gap: 6px; flex: 1; }

@@ -1,0 +1,59 @@
+.wrapper { position: relative; display: inline-block; }
+
+.trigger {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--dash-text-secondary, #AAB4C3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.trigger:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--dash-border, rgba(255, 255, 255, 0.06));
+  color: var(--dash-text, #fff);
+}
+
+.panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  min-width: 190px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.alignRight { right: 0; }
+.alignLeft { left: 0; }
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: none;
+  border: none;
+  color: var(--dash-text, #fff);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.item:hover { background: rgba(79, 140, 255, 0.1); }
+.itemDanger { color: var(--dash-danger, #FF4D67); }
+.itemDanger:hover { background: rgba(255, 77, 103, 0.1); }

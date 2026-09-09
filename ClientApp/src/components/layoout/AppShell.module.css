@@ -1,0 +1,29 @@
+.layout {
+  --dash-bg: #090B10;
+  --dash-card: #10141C;
+  --dash-accent: #4F8CFF;
+  --dash-hover: #6EA8FF;
+  --dash-border: rgba(255, 255, 255, 0.06);
+  --dash-text: #FFFFFF;
+  --dash-text-secondary: #AAB4C3;
+  --dash-success: #3DDC84;
+  --dash-danger: #FF4D67;
+  --dash-warning: #F7B500;
+  --dash-radius-lg: 24px;
+  --dash-radius-md: 16px;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--dash-bg);
+  display: flex;
+}
+
+.main {
+  flex: 1;
+  margin-left: 290px;
+  padding: 24px 32px 48px;
+}
+
+@media (max-width: 900px) {
+  .main { margin-left: 96px; padding: 20px 18px 40px; }
+}

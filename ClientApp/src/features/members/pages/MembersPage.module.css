@@ -1,0 +1,2 @@
+.page { display: flex; flex-direction: column; }
+.sentinel { margin-top: 12px; min-height: 20px; }

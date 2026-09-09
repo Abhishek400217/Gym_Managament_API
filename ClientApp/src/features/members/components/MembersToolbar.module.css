@@ -1,0 +1,41 @@
+.toolbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  margin-bottom: 4px;
+}
+
+.subtitle { font-size: 13px; color: var(--dash-text-secondary, #AAB4C3); }
+.controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+.searchWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 320px;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 14px;
+  padding: 10px 14px;
+}
+
+.searchIcon { color: var(--dash-text-secondary, #AAB4C3); flex-shrink: 0; }
+.searchInput { flex: 1; background: transparent; border: none; outline: none; color: var(--dash-text, #fff); font-size: 13px; min-width: 0; }
+.searchInput::placeholder { color: #6b7280; }
+
+@media (max-width: 640px) {
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .controls { flex-direction: column; align-items: stretch; }
+  .searchWrap { width: 100%; }
+}
