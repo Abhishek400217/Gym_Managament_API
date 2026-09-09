@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import SceneBackground from '../../../background/SceneBackground'
 import LightRays from '../../../background/LightRays'
@@ -18,6 +19,12 @@ function LoginPage() {
   const [authError, setAuthError] = useState('')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    if (!authError) return undefined
+    const timeoutId = setTimeout(() => setAuthError(''), 3000)
+    return () => clearTimeout(timeoutId)
+  }, [authError])
+
   const handleLogin = (formData) => {
     if (formData.username === 'abhishek14' && formData.password === '12345') {
       navigate('/dashboard')
@@ -33,9 +40,24 @@ function LoginPage() {
       <LightRays />
       <DustParticles />
 
+      <AnimatePresence>
+        {authError && (
+          <motion.div
+            className={styles.authToast}
+            role="alert"
+            initial={{ opacity: 0, y: -24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            {authError}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <LoginCard>
         <BrandMark />
-        <LoginForm onSubmit={handleLogin} authError={authError} />
+        <LoginForm onSubmit={handleLogin} />
       </LoginCard>
     </div>
   )

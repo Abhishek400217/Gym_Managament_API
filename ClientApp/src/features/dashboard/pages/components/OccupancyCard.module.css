@@ -1,0 +1,18 @@
+.card { min-width: 0; padding: 22px; border: 1px solid var(--dash-border); border-radius: var(--dash-radius-lg); background: linear-gradient(145deg, var(--dash-card), var(--dash-card-soft)); box-shadow: var(--dash-shadow); }
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.kicker { margin: 0 0 4px; color: var(--dash-accent); font-size: 9px; font-weight: 700; letter-spacing: .18em; }
+.header h2 { margin: 0; color: var(--dash-text); font-family: 'Space Grotesk', sans-serif; font-size: 17px; }
+.icon { color: var(--dash-accent); }
+.content { display: flex; align-items: center; gap: 28px; padding-top: 25px; }
+.ring { display: grid; width: 150px; height: 150px; flex: 0 0 auto; place-items: center; border-radius: 50%; background: conic-gradient(var(--dash-accent) var(--progress), var(--dash-track) 0); transform: rotate(-90deg); box-shadow: 0 0 32px var(--dash-accent-glow); animation: ringIn .8s var(--ease-premium) both; }
+.ring::before { width: 126px; height: 126px; border-radius: 50%; background: var(--dash-card); content: ''; }
+.ringInner { position: absolute; display: grid; place-items: center; transform: rotate(90deg); }
+.ringInner strong { color: var(--dash-text); font-family: 'Space Grotesk', sans-serif; font-size: 30px; }
+.ringInner span { color: var(--dash-text-muted); font-size: 10px; }
+@keyframes ringIn { from { opacity: .2; transform: rotate(-90deg) scale(.82); } to { opacity: 1; transform: rotate(-90deg) scale(1); } }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; min-width: 0; }
+.metrics div { display: grid; gap: 4px; }
+.metrics strong { color: var(--dash-text); font-size: 21px; }
+.metrics span, .metrics p { color: var(--dash-text-secondary); font-size: 11px; }
+.metrics p { grid-column: 1 / -1; margin: 4px 0 0; line-height: 1.5; }
+@media (max-width: 560px) { .content { gap: 18px; } .ring { width: 124px; height: 124px; } .ring::before { width: 104px; height: 104px; } .metrics { gap: 12px; } }

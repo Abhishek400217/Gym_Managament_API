@@ -4,7 +4,6 @@ import { FiUser, FiLock, FiArrowRight } from 'react-icons/fi'
 import InputField from '../../../components/common/InputField'
 import Button from '../../../components/common/Button'
 import RememberMeRow from './RememberMeRow'
-import styles from './LoginForm.module.css'
 
 const containerVariants = {
   hidden: {},
@@ -18,9 +17,12 @@ const itemVariants = {
 
 // Owns form state + validation. Stays agnostic about *how* login happens — Feature 3's Axios call plugs
 // into the parent's onSubmit without touching this file's logic.
-function LoginForm({ onSubmit, loading, success, authError }) {
-  const [formData, setFormData] = useState({ username: '', password: '' })
-  const [remember, setRemember] = useState(false)
+function LoginForm({ onSubmit, loading, success }) {
+  const [formData, setFormData] = useState(() => ({
+    username: localStorage.getItem('pulsefit-remembered-username') || '',
+    password: '',
+  }))
+  const [remember, setRemember] = useState(() => Boolean(localStorage.getItem('pulsefit-remembered-username')))
   const [errors, setErrors] = useState({})
   const [touched, setTouched] = useState({})
 
@@ -43,6 +45,8 @@ function LoginForm({ onSubmit, loading, success, authError }) {
     const validationErrors = validate()
     setErrors(validationErrors)
     if (Object.keys(validationErrors).length === 0) {
+      if (remember) localStorage.setItem('pulsefit-remembered-username', formData.username)
+      else localStorage.removeItem('pulsefit-remembered-username')
       onSubmit({ ...formData, remember })
     }
   }
@@ -84,8 +88,6 @@ function LoginForm({ onSubmit, loading, success, authError }) {
           Sign In
         </Button>
       </motion.div>
-
-      {authError && <p className={styles.authError} role="alert">{authError}</p>}
     </motion.form>
   )
 }

@@ -1,0 +1,36 @@
+.card {
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: var(--dash-radius-lg, 24px);
+  padding: 26px;
+  margin-bottom: 20px;
+}
+
+.heading { font-size: 15px; font-weight: 600; color: var(--dash-text, #fff); margin-bottom: 18px; }
+
+.grid { display: flex; gap: 10px; overflow-x: auto; }
+
+.dayLabels { display: flex; flex-direction: column; gap: 6px; padding-top: 2px; }
+.dayLabel { font-size: 10px; color: var(--dash-text-secondary, #AAB4C3); height: 16px; display: flex; align-items: center; }
+
+.weeks { display: flex; gap: 6px; }
+.week { display: flex; flex-direction: column; gap: 6px; }
+
+.cell {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  background: var(--dash-accent, #4F8CFF);
+  display: inline-block;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 16px;
+  font-size: 10.5px;
+  color: var(--dash-text-secondary, #AAB4C3);
+}
+
+.legendCell { width: 12px; height: 12px; border-radius: 4px; background: var(--dash-accent, #4F8CFF); display: inline-block; }

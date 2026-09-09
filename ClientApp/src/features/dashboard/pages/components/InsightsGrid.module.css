@@ -1,0 +1,46 @@
+.section { margin-bottom: 28px; }
+
+.heading {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dash-text, #fff);
+  margin-bottom: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 18px;
+  padding: 16px 18px;
+}
+
+.iconWrap {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon { width: 17px; height: 17px; }
+
+.toneSuccess { background: rgba(61, 220, 132, 0.12); }
+.toneSuccess .icon { color: var(--dash-success, #3DDC84); }
+.toneAccent { background: rgba(79, 140, 255, 0.14); }
+.toneAccent .icon { color: var(--dash-accent, #4F8CFF); }
+.toneWarning { background: rgba(247, 181, 0, 0.14); }
+.toneWarning .icon { color: var(--dash-warning, #F7B500); }
+
+.value { font-size: 18px; font-weight: 700; color: var(--dash-text, #fff); }
+.label { font-size: 11.5px; color: var(--dash-text-secondary, #AAB4C3); }

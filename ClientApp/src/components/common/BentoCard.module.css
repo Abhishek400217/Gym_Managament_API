@@ -1,0 +1,81 @@
+.card {
+  position: relative;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: var(--dash-radius-lg, 24px);
+  padding: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.3s ease;
+  min-height: 130px;
+}
+
+.card:hover { border-color: rgba(79, 140, 255, 0.35); }
+
+.glow {
+  position: absolute;
+  inset: -40% -40% auto auto;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(79, 140, 255, 0.16), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover .glow { opacity: 1; }
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.iconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 140, 255, 0.14);
+}
+
+.icon { width: 18px; height: 18px; color: var(--dash-accent, #4F8CFF); }
+
+.trend {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.trendUp { color: var(--dash-success, #3DDC84); background: rgba(61, 220, 132, 0.12); }
+.trendDown { color: var(--dash-danger, #FF4D67); background: rgba(255, 77, 103, 0.12); }
+
+.value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.label { font-size: 13px; line-height: 1.35; color: var(--dash-text-secondary, #AAB4C3); overflow-wrap: anywhere; }
+
+.lg { grid-column: span 2; grid-row: span 2; min-height: 276px; padding: 30px; }
+.lg .value { font-size: 40px; }
+.lg .iconWrap { width: 48px; height: 48px; }
+.lg .icon { width: 22px; height: 22px; }
+
+.md { grid-column: span 2; grid-row: span 1; min-height: 130px; }
+.sm { grid-column: span 1; grid-row: span 1; }
+
+@media (max-width: 700px) {
+  .lg, .md { grid-column: span 2; }
+}

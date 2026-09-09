@@ -1,0 +1,2 @@
+.results { display: flex; align-items: center; gap: 8px; margin: -8px 0 18px; padding: 10px 14px; border: 1px solid var(--dash-border); border-radius: 12px; background: var(--dash-card-soft); color: var(--dash-text-secondary); font-size: 11px; }
+.results svg { color: var(--dash-accent); flex: 0 0 auto; }
