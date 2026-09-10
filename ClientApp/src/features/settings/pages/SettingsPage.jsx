@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-    Activity, Building2, Clock, Upload, MapPin, User, Phone,
-    Mail, FileText, Globe, Map, Palette, Monitor, Bell, Shield,
-    Info, IndianRupee, Calendar,
+    Activity, Upload,
 } from 'lucide-react'
 import AppShell from '../../../components/layoout/AppShell'
 import ActionButton from '../../../components/common/ActionButton'
@@ -11,7 +9,6 @@ import SettingsNav from '../components/SettingsNav'
 import SettingsSection from '../components/SettingsSection'
 import ReadOnlyField from '../components/ReadOnlyField'
 import TimeInput from '../components/TimeInput'
-import ToggleSwitch from '../components/ToggleSwitch'
 import SuccessToast from '../components/SuccessToast'
 import styles from './SettingsPage.module.css'
 
@@ -30,7 +27,6 @@ const DEFAULT_SETTINGS = {
     logoUrl: null,
     openingTime: '06:00',
     closingTime: '22:00',
-    sidebarCollapsed: false,
 }
 
 // ─── Static gym info (read-only, realistic dummy data) ──────────────────────
@@ -45,13 +41,7 @@ const GYM_INFO = {
     mapsLink: 'maps.google.com/?q=PulseFit+Gym+Kothrud+Pune',
 }
 
-// ─── Notification rows (display only, all OFF) ───────────────────────────────
-const NOTIFICATIONS = [
-    { id: 'renewal', label: 'Renewal Notification', description: 'Alert when member memberships are about to expire.' },
-    { id: 'payment', label: 'Payment Notification', description: 'Alert when a new payment is recorded.' },
-    { id: 'system', label: 'System Notification', description: 'General system and application alerts.' },
-    { id: 'browser', label: 'Browser Notification', description: 'Push notifications via the browser.' },
-]
+
 
 // ────────────────────────────────────────────────────────────────────────────
 function SettingsPage() {
@@ -60,7 +50,6 @@ function SettingsPage() {
     const [logoUrl, setLogoUrl] = useState(saved?.logoUrl ?? DEFAULT_SETTINGS.logoUrl)
     const [openingTime, setOpeningTime] = useState(saved?.openingTime ?? DEFAULT_SETTINGS.openingTime)
     const [closingTime, setClosingTime] = useState(saved?.closingTime ?? DEFAULT_SETTINGS.closingTime)
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(saved?.sidebarCollapsed ?? DEFAULT_SETTINGS.sidebarCollapsed)
     const [toastVisible, setToastVisible] = useState(false)
     const toastTimerRef = useRef(null)
     const fileInputRef = useRef(null)
@@ -74,7 +63,7 @@ function SettingsPage() {
     }
 
     const handleSave = () => {
-        const data = { logoUrl, openingTime, closingTime, sidebarCollapsed }
+        const data = { logoUrl, openingTime, closingTime }
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)) } catch { /* ignore */ }
         clearTimeout(toastTimerRef.current)
         setToastVisible(true)
@@ -92,7 +81,6 @@ function SettingsPage() {
                     <div key="general" className={styles.sectionsStack}>
                         <SettingsSection title="General" description="Core application settings. These values are fixed and cannot be changed.">
                             <ReadOnlyField label="Gym Name" value="PulseFit Gym" />
-                            <ReadOnlyField label="Currency" value="Indian Rupee (₹)" />
                             <ReadOnlyField label="Renewal Reminder" value="Always 3 Days Before Expiry" />
                         </SettingsSection>
                     </div>
@@ -160,97 +148,6 @@ function SettingsPage() {
                                     value={closingTime}
                                     onChange={(e) => setClosingTime(e.target.value)}
                                 />
-                            </div>
-                        </SettingsSection>
-                    </div>
-                )
-
-            // ── APPEARANCE ────────────────────────────────────────────────────
-            case 'appearance':
-                return (
-                    <div key="appearance" className={styles.sectionsStack}>
-                        <SettingsSection title="Theme Color" description="The application accent color is fixed to maintain brand consistency.">
-                            <div className={styles.themeColorRow}>
-                                <span className={styles.themeColorSwatch} aria-hidden="true" />
-                                <div>
-                                    <p className={styles.themeColorName}>Electric Blue</p>
-                                    <p className={styles.themeColorHex}>#4F8CFF</p>
-                                </div>
-                                <span className={styles.themeColorFixed}>Fixed</span>
-                            </div>
-                        </SettingsSection>
-
-                        <SettingsSection title="Sidebar" description="Control sidebar behaviour preferences.">
-                            <ToggleSwitch
-                                id="sidebar-collapsed"
-                                label="Remember Sidebar Collapse State"
-                                description="Persist the sidebar's collapse/expand state between sessions."
-                                checked={sidebarCollapsed}
-                                onChange={setSidebarCollapsed}
-                            />
-                        </SettingsSection>
-
-                        <SettingsSection title="Notifications" description="Notification settings are pre-configured and cannot be changed.">
-                            {NOTIFICATIONS.map((n) => (
-                                <ToggleSwitch
-                                    key={n.id}
-                                    id={`notif-${n.id}`}
-                                    label={n.label}
-                                    description={n.description}
-                                    checked={false}
-                                    onChange={() => { }}
-                                    disabled
-                                />
-                            ))}
-                        </SettingsSection>
-                    </div>
-                )
-
-            // ── SESSION ───────────────────────────────────────────────────────
-            case 'session':
-                return (
-                    <div key="session" className={styles.sectionsStack}>
-                        <SettingsSection title="Current Session" description="Information about your active admin session.">
-                            <div className={styles.sessionGrid}>
-                                <div className={styles.sessionCard}>
-                                    <span className={styles.sessionCardIcon}>
-                                        <Shield size={18} aria-hidden="true" />
-                                    </span>
-                                    <div>
-                                        <p className={styles.sessionCardLabel}>Session Status</p>
-                                        <p className={styles.sessionCardValue}>
-                                            <span className={styles.sessionDot} aria-hidden="true" />
-                                            Active
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className={styles.sessionCard}>
-                                    <span className={styles.sessionCardIcon}>
-                                        <Clock size={18} aria-hidden="true" />
-                                    </span>
-                                    <div>
-                                        <p className={styles.sessionCardLabel}>Session Timeout</p>
-                                        <p className={styles.sessionCardValue}>30 Minutes</p>
-                                    </div>
-                                </div>
-                                <div className={styles.sessionCard}>
-                                    <span className={styles.sessionCardIcon}>
-                                        <User size={18} aria-hidden="true" />
-                                    </span>
-                                    <div>
-                                        <p className={styles.sessionCardLabel}>Logged in as</p>
-                                        <p className={styles.sessionCardValue}>abhishek14</p>
-                                    </div>
-                                </div>
-                                <div className={styles.sessionCard}>
-                                    <span className={styles.sessionCardIcon}>
-                                        <Monitor size={18} aria-hidden="true" />
-                                    </span>
-                                    <div>
-                                        <p className={styles.sessionCardLabel}>Access Level</p>
-                                        <p className={styles.sessionCardValue}>Administrator</p>
-                                    </div>
-                                </div>
                             </div>
                         </SettingsSection>
                     </div>

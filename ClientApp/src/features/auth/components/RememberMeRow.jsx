@@ -7,9 +7,8 @@ function RememberMeRow({ remember, onRememberChange }) {
   return (
     <div className={styles.row}>
       <Checkbox id="remember-me" checked={remember} onChange={onRememberChange} label="Remember me" />
-      <a href="#" className={styles.forgotLink}>Forgot Password?</a>
     </div>
   )
 }
 
-export default RememberMeRow
+export default RememberMeRow

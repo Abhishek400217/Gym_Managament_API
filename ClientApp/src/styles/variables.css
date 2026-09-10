@@ -22,4 +22,19 @@
   --radius-lg: 26px;
   --radius-md: 14px;
   --radius-sm: 12px;
+
+  /* Autofill background — dark mode default */
+  --autofill-bg: #0B0F12;
 }
+
+/* Light mode global variable overrides */
+html[data-dashboard-theme='light'] {
+  --color-bg-primary: #EEF2F6;
+  --color-surface: rgba(255, 255, 255, 0.8);
+  --color-border: rgba(24, 57, 94, 0.14);
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6b7280;
+  /* Autofill background — light mode */
+  --autofill-bg: #F7F8FB;
+}

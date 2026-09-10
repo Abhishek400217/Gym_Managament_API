@@ -2,13 +2,16 @@ import { createContext, useEffect, useState } from 'react'
 
 const ThemeContext = createContext(null)
 
-// Dashboard-local dark/light toggle. Deliberately NOT touching the login page or its ThemeContext (it has
-// none) — this only wraps the dashboard route tree, so login stays exactly as it was.
+// Global theme provider — mounted once at the app root (main.jsx) so every page shares a single theme state.
+// Persists the chosen theme to localStorage so it survives page reloads.
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem('pulsefit-theme') || 'dark'
+  )
 
   useEffect(() => {
     document.documentElement.setAttribute('data-dashboard-theme', theme)
+    try { localStorage.setItem('pulsefit-theme', theme) } catch { /* ignore */ }
   }, [theme])
 
   const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))

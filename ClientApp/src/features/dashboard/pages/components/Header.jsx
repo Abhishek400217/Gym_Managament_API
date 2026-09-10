@@ -1,25 +1,15 @@
 import { motion } from 'framer-motion'
-import { Search, Sun, Moon } from 'lucide-react'
+import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '../../../../hooks/useTheme'
 import styles from './Header.module.css'
 
-function Header({ userName = 'Abhishek', searchQuery, onSearch }) {
+// Global TopBar — search bar removed. Only Theme Toggle + User Avatar remain.
+// Used by both Dashboard (inline) and all AppShell pages (via AppShell.jsx).
+function Header({ userName = 'Abhishek' }) {
   const { theme, toggleTheme } = useTheme()
 
   return (
     <header className={styles.header}>
-      <div className={styles.searchWrap}>
-        <Search className={styles.searchIcon} aria-hidden="true" />
-        <input
-          type="search"
-          value={searchQuery}
-          onChange={(event) => onSearch(event.target.value)}
-          placeholder="Search members, payments, plans..."
-          className={styles.searchInput}
-          aria-label="Search dashboard"
-        />
-      </div>
-
       <div className={styles.actions}>
         <motion.button
           type="button"

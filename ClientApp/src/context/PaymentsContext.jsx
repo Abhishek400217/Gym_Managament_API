@@ -22,9 +22,9 @@ export function PaymentsProvider({ children }) {
     }
 
     // Recording a payment always settles the member's existing outstanding (Pending/Overdue) record in place —
-    // it never creates a second parallel record for the same cycle. If the member has nothing outstanding
-    // (already Paid and not due), this is blocked: no advance payments, per spec.
-    const addPayment = ({ memberId, method }) => {
+    // it never creates a second parallel record for the same cycle. planMonths can be overridden from the
+    // drawer to allow changing the plan at payment time.
+    const addPayment = ({ memberId, method, planMonths: overridePlanMonths }) => {
         const member = paymentMembers.find((p) => p.id === memberId)
         if (!member) return { success: false, error: 'Select a member.' }
 
@@ -32,14 +32,14 @@ export function PaymentsProvider({ children }) {
         if (!reference) return { success: false, error: 'This member has no membership plan on file.' }
 
         const status = getPaymentStatus(reference)
-        if (status === 'Paid') {
+        if (status === 'Paid' && overridePlanMonths === undefined) {
             return {
                 success: false,
                 error: `${member.name}'s membership is active until ${reference.nextDueDateLabel}. Advance payments aren't allowed.`,
             }
         }
 
-        const planMonths = reference.planMonths
+        const planMonths = overridePlanMonths ?? reference.planMonths
         const livePlan = plans.find((p) => p.months === planMonths)
         const amount = livePlan ? livePlan.price : reference.amount
 
@@ -51,6 +51,8 @@ export function PaymentsProvider({ children }) {
                 p.id === reference.id
                     ? {
                         ...p,
+                        planMonths,
+                        planLabel: livePlan ? livePlan.name : reference.planLabel,
                         amount,
                         method,
                         paymentDate,

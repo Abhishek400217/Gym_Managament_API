@@ -1,0 +1,62 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.memberInfo {
+    padding: 14px 16px;
+    background: rgba(79, 140, 255, 0.06);
+    border: 1px solid rgba(79, 140, 255, 0.16);
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+.memberName {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+    margin-bottom: 4px;
+}
+
+.memberCurrent {
+    font-size: 12.5px;
+    color: var(--dash-text-secondary, #AAB4C3);
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px;
+    background: rgba(61, 220, 132, 0.06);
+    border: 1px solid rgba(61, 220, 132, 0.16);
+    border-radius: 14px;
+    margin-bottom: 16px;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summaryLabel {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dash-text-secondary, #AAB4C3);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.summaryValue {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--dash-text, #fff);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+}

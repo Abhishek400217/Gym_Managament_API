@@ -1,16 +1,26 @@
+/* Full design-token block — mirrors Dashboard.module.css so all AppShell pages react to the global theme. */
 .layout {
   --dash-bg: #090B10;
   --dash-card: #10141C;
+  --dash-card-soft: #141b26;
   --dash-accent: #4F8CFF;
+  --dash-accent-soft: rgba(79, 140, 255, 0.14);
+  --dash-accent-glow: rgba(79, 140, 255, 0.18);
   --dash-hover: #6EA8FF;
+  --dash-hover-bg: rgba(255, 255, 255, 0.04);
   --dash-border: rgba(255, 255, 255, 0.06);
   --dash-text: #FFFFFF;
   --dash-text-secondary: #AAB4C3;
+  --dash-text-muted: #6b7280;
   --dash-success: #3DDC84;
   --dash-danger: #FF4D67;
   --dash-warning: #F7B500;
+  --dash-track: rgba(255, 255, 255, 0.08);
+  --dash-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
   --dash-radius-lg: 24px;
   --dash-radius-md: 16px;
+  /* autofill background for dark mode */
+  --autofill-bg: #10141C;
 
   position: relative;
   min-height: 100vh;
@@ -22,8 +32,30 @@
   flex: 1;
   margin-left: 290px;
   padding: 24px 32px 48px;
+  min-width: 0;
+}
+
+/* ── Light mode overrides ─────────────────────────────────────────────────── */
+:global(html[data-dashboard-theme='light']) .layout {
+  --dash-bg: #EEF2F6;
+  --dash-card: #F7F8FB;
+  --dash-card-soft: #F0F4F8;
+  --dash-hover-bg: rgba(79, 140, 255, 0.08);
+  --dash-border: rgba(24, 57, 94, 0.14);
+  --dash-text: #1F2937;
+  --dash-text-secondary: #374151;
+  --dash-text-muted: #6b7280;
+  --dash-track: rgba(24, 57, 94, 0.1);
+  --dash-shadow: 0 18px 45px rgba(38, 71, 111, 0.12);
+  --dash-accent-soft: rgba(79, 140, 255, 0.12);
+  /* autofill background for light mode */
+  --autofill-bg: #F7F8FB;
 }
 
 @media (max-width: 900px) {
   .main { margin-left: 96px; padding: 20px 18px 40px; }
+}
+
+@media (max-width: 640px) {
+  .main { margin-left: 0; padding: 14px 12px 32px 88px; }
 }

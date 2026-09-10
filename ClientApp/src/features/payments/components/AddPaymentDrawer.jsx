@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Drawer from '../../../components/common/Drawer'
 import Select from '../../../components/common/Select'
 import ActionButton from '../../../components/common/ActionButton'
 import { usePayments } from '../../../context/PaymentsContext'
+import { usePlans } from '../../../context/PlansContext'
 import { getPaymentStatus } from '../../../utils/paymentStatus'
+import { addDays, formatDate } from '../../../utils/dateHelpers'
+import { sortPlansForDisplay } from '../../../utils/planOrdering'
 import styles from './AddPaymentDrawer.module.css'
 
 const METHOD_OPTIONS = [
@@ -12,50 +15,73 @@ const METHOD_OPTIONS = [
     { value: 'Card', label: 'Card' },
 ]
 
-// Member dropdown drives everything else. Plan, Amount, and Due Date are derived and shown read-only — per
-// spec, amount is never editable and there's no partial/advance payment. If the selected member is already
-// paid up (not due), the Payment Method field and Confirm button are hidden entirely rather than letting
-// the owner hit an error after the fact.
+// Member dropdown → Plan dropdown (editable) → Amount/Due Date auto-compute from selected plan.
+// On submit the chosen planMonths override is passed to addPayment() so the context records the new plan.
 function AddPaymentDrawer({ open, onClose }) {
     const { paymentMembers, getCurrentRecordForMember, addPayment } = usePayments()
+    const { plans } = usePlans()
 
     const [memberId, setMemberId] = useState('')
+    const [selectedPlanMonths, setSelectedPlanMonths] = useState('')
     const [method, setMethod] = useState('')
     const [errors, setErrors] = useState({})
 
+    // Reset on open
     useEffect(() => {
         if (!open) return
         setMemberId('')
+        setSelectedPlanMonths('')
         setMethod('')
         setErrors({})
     }, [open])
 
+    // Pre-fill plan from member's existing record when member changes
+    useEffect(() => {
+        if (!memberId) { setSelectedPlanMonths(''); return }
+        const reference = getCurrentRecordForMember(memberId)
+        if (reference) setSelectedPlanMonths(String(reference.planMonths))
+    }, [memberId])
+
     const memberOptions = paymentMembers.map((mem) => ({ value: mem.id, label: mem.name }))
-    const reference = memberId ? getCurrentRecordForMember(memberId) : null
-    const referenceStatus = reference ? getPaymentStatus(reference) : null
-    const isUpToDate = referenceStatus === 'Paid'
+
+    // Plan dropdown options — sorted in standard order, Custom plans appended
+    const sortedPlans = useMemo(() => sortPlansForDisplay(plans), [plans])
+    const planOptions = sortedPlans.map((p) => ({
+        value: String(p.months),
+        label: `${p.name} — ₹${p.price.toLocaleString()}`,
+    }))
+
+    // Derive amount + due date from the currently selected plan
+    const derivedInfo = useMemo(() => {
+        if (!memberId || !selectedPlanMonths) return null
+        const months = Number(selectedPlanMonths)
+        const plan = plans.find((p) => p.months === months)
+        const amount = plan ? plan.price : null
+        const dueDate = formatDate(addDays(new Date(), months * 30))
+        return { planLabel: plan ? plan.name : `${months} Month(s)`, amount, dueDate }
+    }, [memberId, selectedPlanMonths, plans])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const nextErrors = {}
         if (!memberId) nextErrors.member = 'Select a member'
-        if (!isUpToDate && !method) nextErrors.method = 'Select a payment method'
-        if (Object.keys(nextErrors).length > 0) {
-            setErrors(nextErrors)
-            return
-        }
+        if (!selectedPlanMonths) nextErrors.plan = 'Select a membership plan'
+        if (!method) nextErrors.method = 'Select a payment method'
+        if (Object.keys(nextErrors).length > 0) { setErrors(nextErrors); return }
 
-        const result = addPayment({ memberId, method })
-        if (!result.success) {
-            setErrors({ member: result.error })
-            return
-        }
+        const result = addPayment({
+            memberId,
+            method,
+            planMonths: Number(selectedPlanMonths),
+        })
+        if (!result.success) { setErrors({ member: result.error }); return }
         onClose()
     }
 
     return (
         <Drawer open={open} onClose={onClose} title="Add Payment">
             <form className={styles.form} onSubmit={handleSubmit} noValidate>
+                {/* 1 – Member */}
                 <Select
                     id="payment-member"
                     label="Member"
@@ -70,30 +96,44 @@ function AddPaymentDrawer({ open, onClose }) {
                     error={errors.member}
                 />
 
-                {reference && (
+                {/* 2 – Membership Plan (editable) */}
+                {memberId && (
+                    <Select
+                        id="payment-plan"
+                        label="Membership Plan"
+                        value={selectedPlanMonths}
+                        onChange={(val) => {
+                            setSelectedPlanMonths(val)
+                            setErrors((prev) => ({ ...prev, plan: undefined }))
+                        }}
+                        options={planOptions}
+                        placeholder="Select a plan"
+                        error={errors.plan}
+                    />
+                )}
+
+                {/* 3 – Auto-derived info */}
+                {derivedInfo && (
                     <div className={styles.autoFill}>
                         <div className={styles.autoFillRow}>
-                            <span className={styles.autoFillLabel}>Membership Plan</span>
-                            <span className={styles.autoFillValue}>{reference.planLabel}</span>
+                            <span className={styles.autoFillLabel}>Plan</span>
+                            <span className={styles.autoFillValue}>{derivedInfo.planLabel}</span>
                         </div>
                         <div className={styles.autoFillRow}>
                             <span className={styles.autoFillLabel}>Amount</span>
-                            <span className={styles.autoFillValue}>₹{reference.amount.toLocaleString()}</span>
+                            <span className={styles.autoFillValue}>
+                                {derivedInfo.amount !== null ? `₹${derivedInfo.amount.toLocaleString()}` : '—'}
+                            </span>
                         </div>
                         <div className={styles.autoFillRow}>
-                            <span className={styles.autoFillLabel}>{isUpToDate ? 'Active Until' : 'Due Date'}</span>
-                            <span className={styles.autoFillValue}>{reference.nextDueDateLabel}</span>
+                            <span className={styles.autoFillLabel}>Next Due Date</span>
+                            <span className={styles.autoFillValue}>{derivedInfo.dueDate}</span>
                         </div>
                     </div>
                 )}
 
-                {reference && isUpToDate && (
-                    <p className={styles.upToDateNote}>
-                        This membership is already active — no payment is due yet. Advance payments aren't allowed.
-                    </p>
-                )}
-
-                {reference && !isUpToDate && (
+                {/* 4 – Payment Method */}
+                {memberId && selectedPlanMonths && (
                     <Select
                         id="payment-method"
                         label="Payment Method"
@@ -110,7 +150,9 @@ function AddPaymentDrawer({ open, onClose }) {
 
                 <div className={styles.actions}>
                     <ActionButton variant="secondary" type="button" onClick={onClose}>Cancel</ActionButton>
-                    {reference && !isUpToDate && <ActionButton type="submit">Confirm Payment</ActionButton>}
+                    {memberId && selectedPlanMonths && (
+                        <ActionButton type="submit">Confirm Payment</ActionButton>
+                    )}
                 </div>
             </form>
         </Drawer>

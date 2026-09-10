@@ -1,0 +1,87 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dash-text, #fff);
+}
+
+.memberId {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dash-text-secondary, #AAB4C3);
+    letter-spacing: 0.04em;
+    font-family: 'Fira Code', monospace;
+}
+
+.divider {
+    height: 1px;
+    background: var(--dash-border, rgba(255, 255, 255, 0.06));
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+    border-radius: 12px;
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dash-text-secondary, #AAB4C3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+}
+
+.value {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--dash-text, #fff);
+    text-align: right;
+}
+
+.alert {
+    font-size: 13px;
+    color: var(--dash-warning, #F7B500);
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(247, 181, 0, 0.08);
+    border: 1px solid rgba(247, 181, 0, 0.2);
+}
+
+.birthday {
+    font-size: 13px;
+    color: var(--dash-accent, #4F8CFF);
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(79, 140, 255, 0.08);
+    border: 1px solid rgba(79, 140, 255, 0.2);
+}

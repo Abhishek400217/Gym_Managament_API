@@ -4,8 +4,6 @@ import styles from './SettingsNav.module.css'
 const NAV_ITEMS = [
     { id: 'general',      label: 'General' },
     { id: 'gym-info',     label: 'Gym Information' },
-    { id: 'appearance',   label: 'Appearance' },
-    { id: 'session',      label: 'Session' },
     { id: 'about',        label: 'About' },
 ]
 

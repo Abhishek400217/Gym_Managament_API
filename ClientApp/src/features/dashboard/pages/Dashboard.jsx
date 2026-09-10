@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ThemeProvider } from '../../../context/ThemeContext'
 import Sidebar from './components/Sidebar'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
@@ -12,32 +11,32 @@ import OccupancyCard from './components/OccupancyCard'
 import SearchResults from './components/SearchResults'
 import styles from './Dashboard.module.css'
 
+// ThemeProvider is now at the app root (main.jsx) — Dashboard no longer needs its own.
 function Dashboard() {
   const navigate = useNavigate()
   const [searchQuery, setSearchQuery] = useState('')
   const handleLogout = () => navigate('/login')
 
   return (
-    <ThemeProvider>
-      <div className={styles.layout}>
-        <Sidebar onLogout={handleLogout} />
+    <div className={styles.layout}>
+      <Sidebar onLogout={handleLogout} />
 
-        <main className={styles.main}>
-          <Header searchQuery={searchQuery} onSearch={setSearchQuery} />
-          <SearchResults query={searchQuery} />
-          <HeroSection />
-          <BentoStats />
-          <InsightsGrid searchQuery={searchQuery} />
+      <main className={styles.main}>
+        {/* Header no longer takes search props — search bar is removed globally */}
+        <Header />
+        <SearchResults query={searchQuery} />
+        <HeroSection />
+        <BentoStats />
+        <InsightsGrid searchQuery={searchQuery} />
 
-          <div className={styles.chartsRow}>
-            <RevenueChart />
-            <OccupancyCard />
-          </div>
+        <div className={styles.chartsRow}>
+          <RevenueChart />
+          <OccupancyCard />
+        </div>
 
-          <MembersPaymentsRenewals searchQuery={searchQuery} />
-        </main>
-      </div>
-    </ThemeProvider>
+        <MembersPaymentsRenewals searchQuery={searchQuery} />
+      </main>
+    </div>
   )
 }
 

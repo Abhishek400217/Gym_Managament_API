@@ -3,6 +3,7 @@
   top: 20px;
   left: 20px;
   bottom: 20px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   background: var(--dash-card-soft, rgba(16, 20, 28, 0.65));
@@ -73,45 +74,29 @@
 .navIcon { width: 19px; height: 19px; flex-shrink: 0; }
 .navLabel { overflow: hidden; text-overflow: ellipsis; }
 
+/* ── Logout button — premium danger styling ─────────────────────────────── */
 .logoutButton {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
+  margin-top: 8px;
   border-radius: 14px;
   background: none;
-  border: none;
+  border: 1px solid transparent;
   color: var(--dash-text-secondary, #AAB4C3);
   font-size: 13.5px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
-  transition: color 0.2s ease, background 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 
-.logoutButton:hover { color: var(--dash-danger, #FF4D67); background: rgba(255, 77, 103, 0.08); }
-
-.collapseToggle {
-  position: absolute;
-  top: 34px;
-  right: -12px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--dash-card, #10141C);
-  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
-  color: var(--dash-text-secondary, #AAB4C3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.logoutButton:hover {
+  color: var(--dash-danger, #FF4D67);
+  background: rgba(255, 77, 103, 0.1);
+  border-color: rgba(255, 77, 103, 0.22);
 }
 
-@media (max-width: 900px) {
-  .sidebar { width: 76px !important; }
-  .brandText, .navLabel { display: none; }
-  .collapseToggle { display: none; }
-}
-
-:global(html[data-dashboard-theme='light']) .sidebar { color: var(--dash-text); }
+:global(html[data-dashboard-theme='light']) .sidebar { color: var(--dash-text); }
