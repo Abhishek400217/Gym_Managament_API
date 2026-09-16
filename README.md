@@ -1,9 +1,3 @@
-<div align="center">
-
-<img src="./assets/pulsefit-banner.gif" alt="PulseFit animated banner" width="100%">
-
-<br/>
-
 <img src="./assets/pulsefit-logo.svg" alt="PulseFit logo" width="420">
 
 🏋️ PULSEFIT
