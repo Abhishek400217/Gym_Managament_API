@@ -1,0 +1,104 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--dash-text-secondary, #AAB4C3);
+  letter-spacing: 0.02em;
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--dash-text-muted, #6b7280);
+}
+
+/* Expired membership warning */
+.expiredWarning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(247, 181, 0, 0.08);
+  border: 1px solid rgba(247, 181, 0, 0.2);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: var(--dash-warning, #F7B500);
+  line-height: 1.5;
+}
+
+.warnIcon { flex-shrink: 0; margin-top: 1px; color: var(--dash-warning, #F7B500); }
+
+/* Read-only member field (edit mode) */
+.readOnlyField {
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: var(--dash-text, #fff);
+}
+
+/* Date input */
+.dateInput {
+  height: 42px;
+  padding: 0 14px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: var(--dash-text, #fff);
+  outline: none;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  color-scheme: dark;
+}
+
+.dateInput:focus { border-color: var(--dash-accent, #4F8CFF); }
+.dateInputError { border-color: var(--dash-danger, #FF4D67) !important; }
+
+/* Textarea */
+.textarea {
+  padding: 10px 14px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 12px;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: var(--dash-text, #fff);
+  outline: none;
+  transition: border-color 0.2s ease;
+  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80px;
+}
+
+.textarea::placeholder { color: var(--dash-text-muted, #6b7280); }
+.textarea:focus { border-color: var(--dash-accent, #4F8CFF); }
+
+.errorText {
+  font-size: 11.5px;
+  color: var(--dash-danger, #FF4D67);
+  margin-top: 2px;
+}
+
+/* Drawer action buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  margin-top: 4px;
+}

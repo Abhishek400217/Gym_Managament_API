@@ -6,6 +6,7 @@ import { ThemeProvider } from './context/ThemeContext.jsx'
 import { PlansProvider } from './context/PlansContext.jsx'
 import { PaymentsProvider } from './context/PaymentsContext.jsx'
 import { MembersProvider } from './context/MembersContext.jsx'
+import { AttendanceProvider } from './context/AttendanceContext.jsx'
 import './index.css'
 
 createRoot(document.getElementById('root')).render(
@@ -15,7 +16,9 @@ createRoot(document.getElementById('root')).render(
         <PlansProvider>
           <PaymentsProvider>
             <MembersProvider>
-              <App />
+              <AttendanceProvider>
+                <App />
+              </AttendanceProvider>
             </MembersProvider>
           </PaymentsProvider>
         </PlansProvider>

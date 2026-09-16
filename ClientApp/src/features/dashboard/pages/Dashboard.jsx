@@ -14,7 +14,9 @@ import styles from './Dashboard.module.css'
 // ThemeProvider is now at the app root (main.jsx) — Dashboard no longer needs its own.
 function Dashboard() {
   const navigate = useNavigate()
-  const [searchQuery, setSearchQuery] = useState('')
+  // searchQuery kept for SearchResults/InsightsGrid/MembersPaymentsRenewals — search UI removed but query passed for compat
+  const [searchQuery] = useState('')
+
   const handleLogout = () => navigate('/login')
 
   return (

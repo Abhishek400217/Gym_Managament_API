@@ -1,26 +1,20 @@
-import { createContext, useEffect, useState } from 'react'
+// Dark theme only — light theme has been permanently removed.
+// ThemeProvider is kept as a no-op wrapper so the import in main.jsx keeps working without touching every file.
+import { createContext, useContext } from 'react'
 
-const ThemeContext = createContext(null)
+const ThemeContext = createContext({ theme: 'dark' })
 
-// Global theme provider — mounted once at the app root (main.jsx) so every page shares a single theme state.
-// Persists the chosen theme to localStorage so it survives page reloads.
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem('pulsefit-theme') || 'dark'
-  )
-
-  useEffect(() => {
-    document.documentElement.setAttribute('data-dashboard-theme', theme)
-    try { localStorage.setItem('pulsefit-theme', theme) } catch { /* ignore */ }
-  }, [theme])
-
-  const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
-
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: 'dark' }}>
       {children}
     </ThemeContext.Provider>
   )
+}
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function useTheme() {
+  return useContext(ThemeContext)
 }
 
 export default ThemeContext

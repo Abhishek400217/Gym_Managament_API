@@ -1,0 +1,73 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.memberHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b6fe0, #4f8cff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.memberName {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  margin-bottom: 3px;
+}
+
+.memberId {
+  font-size: 13px;
+  color: var(--dash-text-secondary, #AAB4C3);
+}
+
+.divider {
+  height: 1px;
+  background: var(--dash-border, rgba(255, 255, 255, 0.06));
+  margin-bottom: 20px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.rowLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--dash-text-muted, #6b7280);
+  min-width: 120px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+.rowValue {
+  font-size: 13.5px;
+  color: var(--dash-text, #fff);
+  text-align: right;
+  flex: 1;
+}
