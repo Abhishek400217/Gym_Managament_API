@@ -6,6 +6,7 @@ import MembershipPlansPage from '../features/plan/pages/MembershipPlansPage'
 import PaymentsPage from '../features/payments/pages/PaymentsPage'
 import SettingsPage from '../features/settings/pages/SettingsPage'
 import AttendancePage from '../features/attendance/pages/AttendancePage'
+import ReportsPage from '../features/reports/pages/ReportsPage'
 
 function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ function AppRoutes() {
       <Route path="/payments" element={<PaymentsPage />} />
       <Route path="/settings" element={<SettingsPage />} />
       <Route path="/attendance" element={<AttendancePage />} />
+      <Route path="/reports" element={<ReportsPage />} />
     </Routes>
   )
 }

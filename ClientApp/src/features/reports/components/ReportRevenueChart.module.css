@@ -1,0 +1,18 @@
+.tooltip {
+  background: var(--dash-card-soft, #141b26);
+  border: 1px solid rgba(79, 140, 255, 0.18);
+  border-radius: 12px;
+  padding: 8px 14px;
+}
+
+.tooltipLabel {
+  font-size: 11px;
+  color: var(--dash-text-muted, #6b7280);
+  margin-bottom: 2px;
+}
+
+.tooltipValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+}

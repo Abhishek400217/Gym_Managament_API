@@ -1,0 +1,69 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 40px;
+}
+
+/* Page header */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: rgba(79, 140, 255, 0.14);
+  color: var(--dash-accent, #4F8CFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pageTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  margin-bottom: 3px;
+}
+
+.pageSubtitle {
+  font-size: 13px;
+  color: var(--dash-text-secondary, #AAB4C3);
+}
+
+/* Section wrappers */
+.section {
+  margin-bottom: 32px;
+}
+
+.sectionHeader {
+  margin-bottom: 14px;
+}
+
+.sectionTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dash-text, #fff);
+  margin-bottom: 3px;
+}
+
+.sectionSub {
+  font-size: 12.5px;
+  color: var(--dash-text-muted, #6b7280);
+}

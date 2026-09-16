@@ -1,0 +1,166 @@
+.bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 20px;
+  padding: 14px 20px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calIcon {
+  color: var(--dash-accent, #4F8CFF);
+  flex-shrink: 0;
+}
+
+.periodLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dash-text, #fff);
+  white-space: nowrap;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* Preset tab row */
+.presetRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.presetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 500;
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  background: transparent;
+  color: var(--dash-text-secondary, #AAB4C3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.presetBtn:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--dash-text, #fff);
+}
+
+.presetBtnActive {
+  background: rgba(79, 140, 255, 0.14);
+  border-color: rgba(79, 140, 255, 0.3);
+  color: var(--dash-accent, #4F8CFF);
+  font-weight: 600;
+}
+
+.chevron {
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Custom range panel */
+.customPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--dash-card-soft, #141b26);
+  border: 1px solid rgba(79, 140, 255, 0.2);
+  border-radius: 16px;
+  padding: 14px 16px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.customRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.customField {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+  min-width: 120px;
+}
+
+.customLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--dash-text-muted, #6b7280);
+}
+
+.monthInput {
+  height: 38px;
+  padding: 0 12px;
+  background: var(--dash-card, #10141C);
+  border: 1px solid var(--dash-border, rgba(255, 255, 255, 0.06));
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--dash-text, #fff);
+  outline: none;
+  transition: border-color 0.2s;
+  color-scheme: dark;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.monthInput:focus { border-color: var(--dash-accent, #4F8CFF); }
+
+.customSep {
+  font-size: 14px;
+  color: var(--dash-text-muted, #6b7280);
+  padding-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.applyBtn {
+  height: 38px;
+  padding: 0 18px;
+  background: var(--dash-accent, #4F8CFF);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.applyBtn:hover { background: #6EA8FF; }
+
+@media (max-width: 640px) {
+  .bar { flex-direction: column; align-items: stretch; }
+  .right { align-items: stretch; }
+  .presetRow { justify-content: flex-start; }
+  .customPanel { max-width: 100%; }
+}
