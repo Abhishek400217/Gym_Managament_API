@@ -1,4 +1,3 @@
-<img src="./assets/pulsefit-logo.svg" alt="PulseFit logo" width="420">
 
 🏋️ PULSEFIT
 
