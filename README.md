@@ -8,11 +8,6 @@ A modern, production-oriented gym management platform for owners and members.
 <br/>
 
 
-
-
-
-
-
 </div>
 
 ✨ What is PulseFit?
@@ -878,6 +873,6 @@ Premium Gym Management • Built with React • Powered by ASP.NET Core • SQL 
 
 <br/>
 
-Made with ❤️, code, and a lot of gym sessions by Abhishek Karande.
+Made with ❤️ ,  by Abhishek Karande.
 
 </div>
