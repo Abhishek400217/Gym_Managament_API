@@ -872,7 +872,5 @@ Premium Gym Management • Built with React • Powered by ASP.NET Core • SQL 
 ⭐ If this project is useful, consider giving it a star.
 
 <br/>
-
 Made with ❤️ ,  by Abhishek Karande.
-
 </div>
