@@ -6,8 +6,6 @@ Premium Gym Management System
 A modern, production-oriented gym management platform for owners and members.
 
 <br/>
-
-
 </div>
 
 ✨ What is PulseFit?
